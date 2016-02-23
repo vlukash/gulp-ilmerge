@@ -1,0 +1,27 @@
+{
+  "name": "gulp-ilmerge",
+  "version": "0.1.0",
+  "description": "ILMerge plugin for gulp",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vlukash/gulp-ilmerge.git"
+  },
+  "keywords": [
+    "gulpplugin",
+    "ilmerge",
+    "gulp"
+  ],
+  "author": "Volodymyr Lukashevych <v.lukashevych@gmail.com> (https://github.com/vlukash)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/vlukash/gulp-ilmerge/issues"
+  },
+  "homepage": "https://github.com/vlukash/gulp-ilmerge#readme",
+  "dependencies": {
+    "through2": "^2.0.1"
+  }
+}

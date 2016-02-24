@@ -30,7 +30,9 @@ module.exports = function(options) {
 
   },
   function(cb) {
-    gutil.log(fileList);
-    cb();
+    return ilmerge.MergeLibraries(options, fileList, function(err) {
+      if (err) return cb(err);
+      return cb();
+    });
   });
 };

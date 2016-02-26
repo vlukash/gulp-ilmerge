@@ -10,7 +10,6 @@ var fileList = [];
 
 module.exports = function(options) {
   var options = _.cloneDeep(_.extend(constants.DEFAULTS, options));
-  gutil.log(options);
 
   return through.obj(function(file, enc, cb) {
     if (file.isNull()) {

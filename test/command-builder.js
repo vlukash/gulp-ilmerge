@@ -1,5 +1,6 @@
 'use strict';
 var gutil = require('gulp-util'),
+    path = require('path'),
     chai = require('chai'),
     expect = chai.expect,
     constants = require('../lib/constants');
@@ -12,7 +13,9 @@ describe('# command-builder', function () {
   describe('# getArgs(options)', function () {
     it('should build arguments with default options', function () {
       var result = commandBuilder.getArgs(constants.DEFAULTS);
-      expect(result).to.equal('/out:"merged.dll" /targetplatform:"v4,C:\\Windows\\Microsoft.NET\\Framework\\v4.0.30319" /target:dll');
+      expect(result).to.equal('/out:"merged.dll" /targetplatform:"v4,'+
+                              path.join("C:", "Windows", "Microsoft.NET", "Framework", "v4.0.30319") + '"' +
+                              ' /target:dll');
     });
   });
 

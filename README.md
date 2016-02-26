@@ -1,4 +1,6 @@
 # gulp-ilmerge
+[![Travis](https://img.shields.io/travis/vlukash/gulp-ilmerge.svg?style=flat-square)](https://travis-ci.org/vlukash/gulp-ilmerge)
+
 ILMerge plugin for [gulp](https://github.com/wearefractal/gulp).
 
 ## Installation

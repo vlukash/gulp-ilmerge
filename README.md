@@ -52,6 +52,7 @@ gulp.task("merge", function () {
     .pipe(merge({
         ilmergePath: "packages\\ILMerge.2.14.1208\\tools\\ilmerge.exe",
         outputFile: "output/MergedAssembly.dll",
+        libPath: "lib/",
         targetPlatform: "v4,C:\\Windows\\Microsoft.NET\\Framework\\v4.0.30319",
         target: "dll",
         errorOnFail: "true",
@@ -74,6 +75,12 @@ x64: "C:\\Program Files (x86)\\Microsoft\\ILMerge\\ILMerge.exe"
  - Set output path/name for merged assembly
 
 *Default:* "./merged.dll"
+
+##### libPath
+
+ - Set path to external dll dependencies
+
+*Default:* none
 
 ##### targetPlatform
 

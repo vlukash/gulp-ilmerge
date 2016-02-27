@@ -31,5 +31,76 @@ gulp.task("merge", function () {
 });
 ```
 
-This will merge assemblies into one assembly. By default result assembly will be named `merged.dll` and stored in the project's root folder.
+This will merge assemblies into one assembly. 
+Make sure that your `primary assembly` goes first in the src list (see ILMerge documentation for more details)
+
+By default result assembly will be named `merged.dll` and stored in the project's root folder.
 You can override path/name for result assembly by using `outputFile` parameter.
+
+#### Options
+
+##### Example
+
+```javascript
+var gulp = require("gulp");
+var ilmerge = require("gulp-ilmerge");
+
+gulp.task("merge", function () {
+  return gulp.src(["./bin/Primary.dll",
+      "./bin/Secondary_1.dll",
+      "./bin/Secondary_n.dll"])
+    .pipe(merge({
+        ilmergePath: "packages\\ILMerge.2.14.1208\\tools\\ilmerge.exe",
+        outputFile: "output/MergedAssembly.dll",
+        targetPlatform: "v4,C:\\Windows\\Microsoft.NET\\Framework\\v4.0.30319",
+        target: "dll",
+        errorOnFail: "true",
+        stdout: "true",
+        stderr: "true"
+      }))
+});
+```
+
+##### ilmergePath
+
+ - Set path to ILMerge.exe
+
+*Default:*
+x86: "C:\\Program Files\\Microsoft\\ILMerge\\ILMerge.exe" 
+x64: "C:\\Program Files (x86)\\Microsoft\\ILMerge\\ILMerge.exe"
+
+##### outputFile
+
+ - Set output path/name for merged assembly
+
+*Default:* "./merged.dll"
+
+##### targetPlatform
+
+ - Set target platform version. See ILMerge documentation for details
+
+*Default:* "v4,C:\\Windows\\Microsoft.NET\\Framework\\v4.0.30319"
+
+##### target
+
+ - Set output assembly type
+
+*Default:* "dll"
+
+##### errorOnFail
+
+ - Will cause the gulp-ilmerge stream to return an error if set to true
+
+*Default:* false
+
+##### stdout
+
+ - Show output of ILMerge
+
+*Default:* false
+
+##### stderr
+
+ - Show errors of ILMerge
+
+*Default:* true
